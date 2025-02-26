@@ -1,10 +1,11 @@
-export function Checkbox({ checkbox, onChange, label}){
-    return <div>
+export function Checkbox({ checkbox, onChange, label, id}){
+    return <div className="form-check">
         <input type="checkbox" 
+        id={id}
         className=" form-check-input"
         checked={checked}
         onChange={(e) =>onchange(e.target.checked)}
         />
-        <label  className=" form-check-label" >{label}</label>
+        <label htmlFor="id"  className=" form-check-label" >{label}</label>
          </div>
 }
