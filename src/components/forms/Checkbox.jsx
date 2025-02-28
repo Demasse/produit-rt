@@ -1,9 +1,20 @@
-export function Checkbox({ checkbox, onChange, label, id}){
+
+/**
+ * 
+ * @param {boolean} checkbox 
+ * @param {(v : boolean) => void} onChange
+ * @param {string} label 
+ * @param {string} id 
+ * @returns 
+ */
+
+export function Checkbox({checkbox, onChange, label, id}){
     return <div className="form-check">
-        <input type="checkbox" 
+        <input
         id={id}
+        type="checkbox" 
         className=" form-check-input"
-        checked={checked}
+        checked={checkbox}
         onChange={(e) =>onchange(e.target.checked)}
         />
         <label htmlFor="id"  className=" form-check-label" >{label}</label>
