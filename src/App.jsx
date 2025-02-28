@@ -25,13 +25,17 @@ function App() {
   
 }
 
-     < Searchbar show={show} onStockedOnlyChange />  
-     function Searchbar ({show,  }){
+function Searchbar ({show, onStockedOnlyChange }){
+    //  < Searchbar show={show} onStockedOnlyChange />  
   return <div>
     <div className=" container  my-3 ">
 
       <Input value = "" onChange={ () => null} placeholder="rechercher....."  />
-      <Checkbox id="stocked" checkbox={false} onChange={() => null} label="en-stock" />
+      <Checkbox
+       id="stocked" 
+      checkbox={show} 
+      onChange={onStockedOnlyChange} 
+      label="en-stock" />
     </div>
 
   </div>
