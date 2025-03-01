@@ -16,24 +16,31 @@ const PRODUCTS = [
 
 function App() {
 
-  const[show ,setshow] = useState(false)
+  const[showstock ,setshowstock] = useState(false)
+  const[search ,setsearch] = useState('')
 
   return <div className=" container my-3 ">
-     < Searchbar show={show} onStockedOnlyChange={setshow} />  
+     < Searchbar 
+     search={search}
+     onSearchChange={setsearch}
+
+     showstock={showstock} onStockedOnlyChange={setshowstock} />  
      <ProductTable products={PRODUCTS} />  
        </div>
   
 }
 
-function Searchbar ({show, onStockedOnlyChange }){
-    //  < Searchbar show={show} onStockedOnlyChange />  
+function Searchbar ({showstock, onStockedOnlyChange , onSearchChange, search}) {
+    //  < Searchbar showstock={showstock} onStockedOnlyChange />  
   return <div>
     <div className=" container  my-3 ">
 
-      <Input value = "" onChange={ () => null} placeholder="rechercher....."  />
+      <Input 
+      value = {search} 
+      onChange={ onSearchChange } placeholder="rechercher....."  />
       <Checkbox
        id="stocked" 
-      checkbox={show} 
+      checked={showstock} 
       onChange={onStockedOnlyChange} 
       label="en-stock" />
     </div>
