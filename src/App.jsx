@@ -18,6 +18,18 @@ function App() {
 
   const[showstock ,setshowstock] = useState(false)
   const[search ,setsearch] = useState('')
+  const visibleproduct  = PRODUCTS.filter(product => {
+    
+ 
+    if (showstock && !product.stocked ){
+       return false
+    }
+    if (search && !product.name.includes(search)){
+      return false
+    }
+    return true
+
+  })
 
   return <div className=" container my-3 ">
      < Searchbar 
@@ -25,7 +37,7 @@ function App() {
      onSearchChange={setsearch}
 
      showstock={showstock} onStockedOnlyChange={setshowstock} />  
-     <ProductTable products={PRODUCTS} />  
+     <ProductTable products={visibleproduct} />  
        </div>
   
 }
